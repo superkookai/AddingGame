@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  AddingGame
+
+  Created by Weerawut Chaiyasomboon on 30/11/2567 BE.
+  
+*/
+
+"Game over" = "Spiel vorbei";
+"Score" = "Punktzahl";
+"Level" = "Ebene";
+"Game" = "Spiel";
+"High Score" = "Highscore";
+"Rank" = "Rang";
+"Name" = "Name";
+"Save" = "Speichern";
