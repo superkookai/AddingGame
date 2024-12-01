@@ -10,13 +10,13 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         TabView{
-            Text("Adding game view")
+            AddingGameView()
                 .tabItem{
                     Image(systemName: "gamecontroller")
                     Text("Game")
                 }
             
-            Text("High score view")
+            HighScoreView()
                 .tabItem{
                     Image(systemName: "list.number")
                     Text("High Scores")
@@ -27,4 +27,5 @@ struct MainView: View {
 
 #Preview {
     MainView()
+        .environmentObject(HighScoreViewModel())
 }

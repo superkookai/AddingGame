@@ -16,6 +16,18 @@
 		BF646E1A2CFB1C3000DD54A8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF646E182CFB1C3000DD54A8 /* Localizable.strings */; };
 		BF646E212CFB262700DD54A8 /* HighScoresDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF646E1F2CFB262700DD54A8 /* HighScoresDataModel.xcdatamodeld */; };
 		BF646E232CFB273800DD54A8 /* HighScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF646E222CFB273800DD54A8 /* HighScoreViewModel.swift */; };
+		BFE88A742CFC1614002AEED8 /* ProblemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE88A732CFC1614002AEED8 /* ProblemModel.swift */; };
+		BFE88A762CFC1AD2002AEED8 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE88A752CFC1AD2002AEED8 /* GameModel.swift */; };
+		BFE88A782CFC1CC2002AEED8 /* AddingGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE88A772CFC1CC2002AEED8 /* AddingGameViewModel.swift */; };
+		BFE88A7B2CFC2BC7002AEED8 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE88A7A2CFC2BC7002AEED8 /* BackgroundView.swift */; };
+		BFE88A7F2CFC2D59002AEED8 /* AddingGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE88A7E2CFC2D59002AEED8 /* AddingGameView.swift */; };
+		BFE88A812CFC2DB3002AEED8 /* HighScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE88A802CFC2DB3002AEED8 /* HighScoreView.swift */; };
+		BFE88A832CFC327C002AEED8 /* ScoreLivesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE88A822CFC327C002AEED8 /* ScoreLivesView.swift */; };
+		BFE88A852CFC3464002AEED8 /* TitleValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE88A842CFC3464002AEED8 /* TitleValueView.swift */; };
+		BFE88A872CFC356A002AEED8 /* LivesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE88A862CFC356A002AEED8 /* LivesView.swift */; };
+		BFE88A892CFC39E1002AEED8 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE88A882CFC39E1002AEED8 /* BubbleView.swift */; };
+		BFE88A8B2CFC3EF9002AEED8 /* ChoicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE88A8A2CFC3EF9002AEED8 /* ChoicesView.swift */; };
+		BFE88A8D2CFC47F4002AEED8 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE88A8C2CFC47F4002AEED8 /* GameOverView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +45,18 @@
 		BF646E1E2CFB213200DD54A8 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BF646E202CFB262700DD54A8 /* HighScoresDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HighScoresDataModel.xcdatamodel; sourceTree = "<group>"; };
 		BF646E222CFB273800DD54A8 /* HighScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewModel.swift; sourceTree = "<group>"; };
+		BFE88A732CFC1614002AEED8 /* ProblemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemModel.swift; sourceTree = "<group>"; };
+		BFE88A752CFC1AD2002AEED8 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		BFE88A772CFC1CC2002AEED8 /* AddingGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingGameViewModel.swift; sourceTree = "<group>"; };
+		BFE88A7A2CFC2BC7002AEED8 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		BFE88A7E2CFC2D59002AEED8 /* AddingGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingGameView.swift; sourceTree = "<group>"; };
+		BFE88A802CFC2DB3002AEED8 /* HighScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreView.swift; sourceTree = "<group>"; };
+		BFE88A822CFC327C002AEED8 /* ScoreLivesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreLivesView.swift; sourceTree = "<group>"; };
+		BFE88A842CFC3464002AEED8 /* TitleValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleValueView.swift; sourceTree = "<group>"; };
+		BFE88A862CFC356A002AEED8 /* LivesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivesView.swift; sourceTree = "<group>"; };
+		BFE88A882CFC39E1002AEED8 /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
+		BFE88A8A2CFC3EF9002AEED8 /* ChoicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoicesView.swift; sourceTree = "<group>"; };
+		BFE88A8C2CFC47F4002AEED8 /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +112,7 @@
 		BF646E0D2CFB15AA00DD54A8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BFE88A792CFC2BA2002AEED8 /* Background View */,
 				BF646E132CFB161600DD54A8 /* High Score View */,
 				BF646E122CFB160400DD54A8 /* Adding Game View */,
 				BF646E072CFB146500DD54A8 /* MainView.swift */,
@@ -100,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				BF646E222CFB273800DD54A8 /* HighScoreViewModel.swift */,
+				BFE88A772CFC1CC2002AEED8 /* AddingGameViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -108,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				BF646E1F2CFB262700DD54A8 /* HighScoresDataModel.xcdatamodeld */,
+				BFE88A732CFC1614002AEED8 /* ProblemModel.swift */,
+				BFE88A752CFC1AD2002AEED8 /* GameModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -131,6 +159,13 @@
 		BF646E122CFB160400DD54A8 /* Adding Game View */ = {
 			isa = PBXGroup;
 			children = (
+				BFE88A7E2CFC2D59002AEED8 /* AddingGameView.swift */,
+				BFE88A822CFC327C002AEED8 /* ScoreLivesView.swift */,
+				BFE88A842CFC3464002AEED8 /* TitleValueView.swift */,
+				BFE88A862CFC356A002AEED8 /* LivesView.swift */,
+				BFE88A882CFC39E1002AEED8 /* BubbleView.swift */,
+				BFE88A8A2CFC3EF9002AEED8 /* ChoicesView.swift */,
+				BFE88A8C2CFC47F4002AEED8 /* GameOverView.swift */,
 			);
 			path = "Adding Game View";
 			sourceTree = "<group>";
@@ -138,8 +173,17 @@
 		BF646E132CFB161600DD54A8 /* High Score View */ = {
 			isa = PBXGroup;
 			children = (
+				BFE88A802CFC2DB3002AEED8 /* HighScoreView.swift */,
 			);
 			path = "High Score View";
+			sourceTree = "<group>";
+		};
+		BFE88A792CFC2BA2002AEED8 /* Background View */ = {
+			isa = PBXGroup;
+			children = (
+				BFE88A7A2CFC2BC7002AEED8 /* BackgroundView.swift */,
+			);
+			path = "Background View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,11 +264,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFE88A8B2CFC3EF9002AEED8 /* ChoicesView.swift in Sources */,
+				BFE88A7B2CFC2BC7002AEED8 /* BackgroundView.swift in Sources */,
 				BF646E0B2CFB146500DD54A8 /* AddingGameApp.swift in Sources */,
+				BFE88A892CFC39E1002AEED8 /* BubbleView.swift in Sources */,
+				BFE88A872CFC356A002AEED8 /* LivesView.swift in Sources */,
+				BFE88A742CFC1614002AEED8 /* ProblemModel.swift in Sources */,
+				BFE88A852CFC3464002AEED8 /* TitleValueView.swift in Sources */,
+				BFE88A832CFC327C002AEED8 /* ScoreLivesView.swift in Sources */,
 				BF646E212CFB262700DD54A8 /* HighScoresDataModel.xcdatamodeld in Sources */,
+				BFE88A7F2CFC2D59002AEED8 /* AddingGameView.swift in Sources */,
 				BF646E152CFB179A00DD54A8 /* ImageConstants.swift in Sources */,
+				BFE88A782CFC1CC2002AEED8 /* AddingGameViewModel.swift in Sources */,
 				BF646E0C2CFB146500DD54A8 /* MainView.swift in Sources */,
+				BFE88A762CFC1AD2002AEED8 /* GameModel.swift in Sources */,
+				BFE88A812CFC2DB3002AEED8 /* HighScoreView.swift in Sources */,
 				BF646E172CFB193200DD54A8 /* TestLocalizeView.swift in Sources */,
+				BFE88A8D2CFC47F4002AEED8 /* GameOverView.swift in Sources */,
 				BF646E232CFB273800DD54A8 /* HighScoreViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

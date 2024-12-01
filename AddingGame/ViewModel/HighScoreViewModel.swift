@@ -13,6 +13,16 @@ class HighScoreViewModel: ObservableObject {
     
     @Published var highScores: [HighScoreEntity] = []
     
+    var minHighScore: Int64?{
+        if highScores.isEmpty{
+            return nil
+        }else{
+            return highScores.last?.score
+        }
+    }
+    
+    let maxNumOfHighScores = 100
+    
     init(){
         container = NSPersistentContainer(name: "HighScoresDataModel")
         
@@ -69,5 +79,16 @@ class HighScoreViewModel: ObservableObject {
         container.viewContext.delete(entity)
         
         saveHighScores()
+    }
+    
+    func isNewHighScore(score: Int64) -> Bool{
+        if score <= 0{
+            return false
+        } else if let minHighScore{
+            return minHighScore < score || highScores.count <= maxNumOfHighScores //this mean this score need to add to the list of highScores because we set the list must be 100 maximum (now it less than 10)
+        } else{
+            //score > 0 and not have minHighScore (= nil, which means list of highScores isEmpty, so add this score to the list)
+            return true
+        }
     }
 }
