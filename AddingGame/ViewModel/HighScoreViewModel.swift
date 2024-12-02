@@ -81,6 +81,12 @@ class HighScoreViewModel: ObservableObject {
         saveHighScores()
     }
     
+    func deleteHighScore(indexSet: IndexSet){
+        guard let index = indexSet.first else{ return }
+        let entity = highScores[index]
+        deleteHighScore(entity: entity)
+    }
+    
     func isNewHighScore(score: Int64) -> Bool{
         if score <= 0{
             return false

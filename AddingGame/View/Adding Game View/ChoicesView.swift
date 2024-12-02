@@ -18,26 +18,60 @@ struct ChoicesView: View {
     var body: some View {
         LazyVGrid(columns: columns) {
             ForEach(gameVM.possibleSolutions, id: \.self) { choice in
-                let cheatColor: Color = choice == gameVM.answer ? .red : .black
-                let absChoice = abs(choice)
-                BubbleView(
-                    textColor: cheatColor,
-                    bgColor: .purple.opacity(0.7),
-                    name: "bubble2",
-                    text: "\(absChoice)"
-                )
-                .onTapGesture {
-                    withAnimation{
-                        if gameVM.answer == choice {
-                            gameVM.increaseScore()
-                        }else{
-                            gameVM.loseLife()
-                        }
-                        gameVM.generateNumbers()
-                    }
-                }
+                SelectButtonView(gameVM: gameVM, choice: choice)
             }
         }
+    }
+}
+
+struct SelectButtonView: View {
+    let gameVM: AddingGameViewModel
+    let choice: Int
+    
+    @State private var isSelected: Bool = false
+    var scale: CGFloat{
+        isSelected ? 1.2 : 1.0
+    }
+        
+    var color: Color{
+        isSelected ? getRandomColor()
+        : .purple.opacity(0.7)
+    }
+    
+    var body: some View {
+        BubbleView(
+            textColor: .black,
+            bgColor: color,
+            name: "bubble2",
+            text: "\(choice)"
+        )
+        .scaleEffect(scale)
+        .onTapGesture {
+            withAnimation(.spring(response: 0.3, dampingFraction: 0.3).repeatCount(1, autoreverses: true))
+            {
+                isSelected.toggle()
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                withAnimation {
+                    isSelected = false
+                }
+            }
+            
+            withAnimation{
+                if gameVM.answer == choice {
+                    gameVM.increaseScore()
+                }else{
+                    gameVM.loseLife()
+                }
+                gameVM.generateNumbers()
+            }
+        }
+    }
+    
+    private func getRandomColor() -> Color {
+        return [.green.opacity(0.7),.blue.opacity(0.5),.pink.opacity(0.7)]
+            .randomElement() ?? .green.opacity(0.7)
     }
 }
 
