@@ -23,7 +23,6 @@ struct RankScoreView: View {
     @State private var save = false
     
 //    @EnvironmentObject private var highScoreVM: HighScoreViewModel
-    @Query(sort:\HighScoreEntity.score, order: .reverse) private var highScores: [HighScoreEntity]
     @Environment(\.modelContext) var modelContext
     
     var body: some View {

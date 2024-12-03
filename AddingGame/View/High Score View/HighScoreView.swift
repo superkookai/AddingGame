@@ -11,6 +11,8 @@ import SwiftData
 struct HighScoreView: View {
 //    @EnvironmentObject private var highScoreVM: HighScoreViewModel
     @Query(sort:\HighScoreEntity.score, order: .reverse) private var highScores: [HighScoreEntity] = []
+//    @Query(sort:[SortDescriptor(\.HighScoreEntity.self, order: .reverse)]) private var highScores: [HighScoreEntity] = []
+    
     @Environment(\.modelContext) var modelContext
     
     var body: some View {
