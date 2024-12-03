@@ -6,15 +6,16 @@
 //
 
 import Foundation
-import CoreData
+import SwiftData
 
+@MainActor
 @Observable
 class HighScoreViewModel {
-    let container: NSPersistentContainer
+    let container: ModelContainer
     
     var highScores: [HighScoreEntity] = []
     
-    var minHighScore: Int64?{
+    var minHighScore: Int?{
         if highScores.isEmpty{
             return nil
         }else{
@@ -24,30 +25,27 @@ class HighScoreViewModel {
     
     let maxNumOfHighScores = 100
     
-    init(){
-        container = NSPersistentContainer(name: "HighScoresDataModel")
+    init(container: ModelContainer){
+        self.container = container
+//        container = try! ModelContainer(for: HighScoreEntity.self)
+//        do{
+//            
+//        }catch{
+//            print("Error creating container: \(error.localizedDescription)")
+//        }
+//        //Fetch data into highScores
         
-        //Load data
-        container
-            .loadPersistentStores { description, error in
-                if let error {
-                    print("Loading error: \(error.localizedDescription)")
-                }else{
-                    print("Loading succeeded")
-                }
-            }
-        
-        //Fetch data into highScores
         fetchHighScores()
     }
     
+    init(){
+        container = try! ModelContainer(for: HighScoreEntity.self)
+    }
+    
     func fetchHighScores(){
-        let request = NSFetchRequest<HighScoreEntity>(entityName: "HighScoreEntity")
-        let sortDescriptor = NSSortDescriptor(keyPath: \HighScoreEntity.score, ascending: false) //decending order
-        request.sortDescriptors = [sortDescriptor]
-        
+        let fetchHighScores = FetchDescriptor<HighScoreEntity>(sortBy: [SortDescriptor(\HighScoreEntity.score, order: .reverse)])
         do{
-            highScores = try container.viewContext.fetch(request)
+            highScores = try container.mainContext.fetch(fetchHighScores)
         }catch{
             print("Error fetching high scores: \(error.localizedDescription)")
         }
@@ -55,15 +53,15 @@ class HighScoreViewModel {
     
     func saveHighScores(){
         do{
-            try container.viewContext.save()
+            try container.mainContext.save()
             fetchHighScores() //to change highScores follow what we save in CoreData
         }catch{
             print("Error saving high scores: \(error.localizedDescription)")
         }
     }
     
-    func addHighScore(name: String, score: Int64){
-        let entity = HighScoreEntity(context: container.viewContext)
+    func addHighScore(name: String, score: Int){
+        let entity = HighScoreEntity(name: name, score: score)
         entity.name = name
         entity.score = score
         
@@ -77,7 +75,7 @@ class HighScoreViewModel {
     }
     
     func deleteHighScore(entity: HighScoreEntity){
-        container.viewContext.delete(entity)
+        container.mainContext.delete(entity)
         
         saveHighScores()
     }
@@ -88,7 +86,7 @@ class HighScoreViewModel {
         deleteHighScore(entity: entity)
     }
     
-    func isNewHighScore(score: Int64) -> Bool{
+    func isNewHighScore(score: Int) -> Bool{
         if score <= 0{
             return false
         } else if let minHighScore{

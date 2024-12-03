@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainView: View {
+    @Environment(HighScoreViewModel.self) private var highScoreVM: HighScoreViewModel
+    
     var body: some View {
         TabView{
             AddingGameView()

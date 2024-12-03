@@ -15,7 +15,7 @@ struct AddingGameView: View {
     @State private var name = ""
     
     var showHighScoreView: Bool {
-        gameVM.gameOver && highScoreVM.isNewHighScore(score: Int64(gameVM.score))
+        gameVM.gameOver && highScoreVM.isNewHighScore(score: gameVM.score)
     }
     
     var showGameOverView: Bool {

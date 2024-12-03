@@ -23,7 +23,7 @@ struct HighScoreView: View {
                         
                         RankScoreView(
                             rank: index+1,
-                            score: Int(entity.score),
+                            score: entity.score,
                             entity: entity
                         )
                     }

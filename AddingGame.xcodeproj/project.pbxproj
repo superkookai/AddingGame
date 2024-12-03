@@ -14,8 +14,8 @@
 		BF646E152CFB179A00DD54A8 /* ImageConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF646E142CFB179A00DD54A8 /* ImageConstants.swift */; };
 		BF646E172CFB193200DD54A8 /* TestLocalizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF646E162CFB193200DD54A8 /* TestLocalizeView.swift */; };
 		BF646E1A2CFB1C3000DD54A8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF646E182CFB1C3000DD54A8 /* Localizable.strings */; };
-		BF646E212CFB262700DD54A8 /* HighScoresDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF646E1F2CFB262700DD54A8 /* HighScoresDataModel.xcdatamodeld */; };
 		BF646E232CFB273800DD54A8 /* HighScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF646E222CFB273800DD54A8 /* HighScoreViewModel.swift */; };
+		BF953E1B2CFEEAB900D9DB8C /* HighScoreEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF953E1A2CFEEAA900D9DB8C /* HighScoreEntity.swift */; };
 		BFA3E8AB2CFD9E6A00C3EDB5 /* EnterNewHighScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA3E8AA2CFD9E6A00C3EDB5 /* EnterNewHighScoreView.swift */; };
 		BFA3E8AD2CFDA6BA00C3EDB5 /* HighScoreTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA3E8AC2CFDA6BA00C3EDB5 /* HighScoreTitleView.swift */; };
 		BFA3E8AF2CFDA7D200C3EDB5 /* VTextImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA3E8AE2CFDA7D200C3EDB5 /* VTextImage.swift */; };
@@ -48,8 +48,8 @@
 		BF646E1C2CFB1CE000DD54A8 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BF646E1D2CFB1CE100DD54A8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BF646E1E2CFB213200DD54A8 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
-		BF646E202CFB262700DD54A8 /* HighScoresDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HighScoresDataModel.xcdatamodel; sourceTree = "<group>"; };
 		BF646E222CFB273800DD54A8 /* HighScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewModel.swift; sourceTree = "<group>"; };
+		BF953E1A2CFEEAA900D9DB8C /* HighScoreEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreEntity.swift; sourceTree = "<group>"; };
 		BFA3E8AA2CFD9E6A00C3EDB5 /* EnterNewHighScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNewHighScoreView.swift; sourceTree = "<group>"; };
 		BFA3E8AC2CFDA6BA00C3EDB5 /* HighScoreTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreTitleView.swift; sourceTree = "<group>"; };
 		BFA3E8AE2CFDA7D200C3EDB5 /* VTextImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VTextImage.swift; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 		BF646E0F2CFB15BE00DD54A8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BF646E1F2CFB262700DD54A8 /* HighScoresDataModel.xcdatamodeld */,
+				BF953E1A2CFEEAA900D9DB8C /* HighScoreEntity.swift */,
 				BFE88A732CFC1614002AEED8 /* ProblemModel.swift */,
 				BFE88A752CFC1AD2002AEED8 /* GameModel.swift */,
 			);
@@ -280,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFE88A8B2CFC3EF9002AEED8 /* ChoicesView.swift in Sources */,
+				BF953E1B2CFEEAB900D9DB8C /* HighScoreEntity.swift in Sources */,
 				BFE88A7B2CFC2BC7002AEED8 /* BackgroundView.swift in Sources */,
 				BF646E0B2CFB146500DD54A8 /* AddingGameApp.swift in Sources */,
 				BFE88A892CFC39E1002AEED8 /* BubbleView.swift in Sources */,
@@ -287,7 +288,6 @@
 				BFE88A742CFC1614002AEED8 /* ProblemModel.swift in Sources */,
 				BFE88A852CFC3464002AEED8 /* TitleValueView.swift in Sources */,
 				BFE88A832CFC327C002AEED8 /* ScoreLivesView.swift in Sources */,
-				BF646E212CFB262700DD54A8 /* HighScoresDataModel.xcdatamodeld in Sources */,
 				BFA3E8AB2CFD9E6A00C3EDB5 /* EnterNewHighScoreView.swift in Sources */,
 				BFA3E8B32CFDBEA100C3EDB5 /* NumericExtension.swift in Sources */,
 				BFE88A7F2CFC2D59002AEED8 /* AddingGameView.swift in Sources */,
@@ -522,19 +522,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		BF646E1F2CFB262700DD54A8 /* HighScoresDataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				BF646E202CFB262700DD54A8 /* HighScoresDataModel.xcdatamodel */,
-			);
-			currentVersion = BF646E202CFB262700DD54A8 /* HighScoresDataModel.xcdatamodel */;
-			path = HighScoresDataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = BF646DEA2CFB142400DD54A8 /* Project object */;
 }

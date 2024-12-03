@@ -41,7 +41,7 @@ struct EnterNewHighScoreView: View {
                 
                 Button {
                     name = name.isEmpty ? "Anonymous" : name
-                    highScoreVM.addHighScore(name: name, score: Int64(score))
+                    highScoreVM.addHighScore(name: name, score: score)
                     isPresented.toggle()
                 } label: {
                     Text("Save")
@@ -63,5 +63,4 @@ struct EnterNewHighScoreView: View {
         name: .constant(""),
         isPresented: .constant(true)
     )
-    .environment(HighScoreViewModel())
 }
