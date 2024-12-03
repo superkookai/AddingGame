@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct AddingGameApp: App {
-    @StateObject var highScoreVM = HighScoreViewModel()
+    @State var highScoreVM = HighScoreViewModel()
     
     var body: some Scene {
         WindowGroup {
             MainView()
-                .environmentObject(highScoreVM)
+                .environment(highScoreVM)
         }
     }
 }

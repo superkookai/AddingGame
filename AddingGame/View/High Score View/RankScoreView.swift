@@ -21,7 +21,7 @@ struct RankScoreView: View {
     @State private var name = ""
     @State private var save = false
     
-    @EnvironmentObject private var highScoreVM: HighScoreViewModel
+    @Environment(HighScoreViewModel.self) private var highScoreVM: HighScoreViewModel
     
     var body: some View {
         VStack {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HighScoreView: View {
-    @EnvironmentObject private var highScoreVM: HighScoreViewModel
+    @Environment(HighScoreViewModel.self) private var highScoreVM: HighScoreViewModel
     
     var body: some View {
         ZStack{
@@ -44,5 +44,5 @@ struct HighScoreView: View {
 
 #Preview {
     HighScoreView()
-        .environmentObject(HighScoreViewModel())
+        .environment(HighScoreViewModel())
 }

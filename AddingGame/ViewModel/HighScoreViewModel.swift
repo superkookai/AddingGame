@@ -8,10 +8,11 @@
 import Foundation
 import CoreData
 
-class HighScoreViewModel: ObservableObject {
+@Observable
+class HighScoreViewModel {
     let container: NSPersistentContainer
     
-    @Published var highScores: [HighScoreEntity] = []
+    var highScores: [HighScoreEntity] = []
     
     var minHighScore: Int64?{
         if highScores.isEmpty{

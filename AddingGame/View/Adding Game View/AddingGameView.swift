@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct AddingGameView: View {
-    @StateObject var gameVM = AddingGameViewModel()
-    @EnvironmentObject private var highScoreVM: HighScoreViewModel
+    @State var gameVM = AddingGameViewModel()
+    @Environment(HighScoreViewModel.self) private var highScoreVM: HighScoreViewModel
     
     @State private var highScoreViewIsPresented  = false
     @State private var name = ""
@@ -76,5 +76,5 @@ struct AddingGameView: View {
 
 #Preview {
     AddingGameView()
-        .environmentObject(HighScoreViewModel())
+        .environment(HighScoreViewModel())
 }
