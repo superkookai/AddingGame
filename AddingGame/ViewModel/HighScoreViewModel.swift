@@ -11,6 +11,7 @@ import SwiftData
 @MainActor
 @Observable
 class HighScoreViewModel {
+    
     let container: ModelContainer
     
     var highScores: [HighScoreEntity] = []
@@ -25,22 +26,19 @@ class HighScoreViewModel {
     
     let maxNumOfHighScores = 100
     
-    init(container: ModelContainer){
-        self.container = container
-//        container = try! ModelContainer(for: HighScoreEntity.self)
-//        do{
-//            
-//        }catch{
-//            print("Error creating container: \(error.localizedDescription)")
-//        }
+//    init(container: ModelContainer){
+//        self.container = container
+//
 //        //Fetch data into highScores
-        
-        fetchHighScores()
-    }
+//        
+//        fetchHighScores()
+//    }
     
     init(){
         container = try! ModelContainer(for: HighScoreEntity.self)
+        fetchHighScores()
     }
+    
     
     func fetchHighScores(){
         let fetchHighScores = FetchDescriptor<HighScoreEntity>(sortBy: [SortDescriptor(\HighScoreEntity.score, order: .reverse)])
@@ -62,13 +60,14 @@ class HighScoreViewModel {
     
     func addHighScore(name: String, score: Int){
         let entity = HighScoreEntity(name: name, score: score)
-        entity.name = name
-        entity.score = score
+        container.mainContext.insert(entity)
         
         saveHighScores()
     }
     
     func updateHighScore(entity: HighScoreEntity, name: String){
+        guard let index = highScores.firstIndex(where: {$0 == entity}) else { return }
+        let entity = highScores[index]
         entity.name = name
         
         saveHighScores()
