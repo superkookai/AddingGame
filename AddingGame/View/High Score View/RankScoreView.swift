@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct RankScoreView: View {
     let scoreColors: [Color] = [.blue,.pink,.purple,.yellow,.orange]
@@ -21,13 +22,15 @@ struct RankScoreView: View {
     @State private var name = ""
     @State private var save = false
     
-    @EnvironmentObject private var highScoreVM: HighScoreViewModel
+//    @EnvironmentObject private var highScoreVM: HighScoreViewModel
+    @Query(sort:\HighScoreEntity.score, order: .reverse) private var highScores: [HighScoreEntity]
+    @Environment(\.modelContext) var modelContext
     
     var body: some View {
         VStack {
             if editMode {
                 HStack{
-                    TextField(entity.name ?? "Name", text: $name)
+                    TextField(entity.name, text: $name)
                         .padding()
                         .background(.green.gradient)
                         .fontWeight(.semibold)
@@ -35,11 +38,12 @@ struct RankScoreView: View {
                         .clipShape(.rect(cornerRadius: 10))
                     
                     Button {
-                        highScoreVM
-                            .updateHighScore(
-                                entity: entity,
-                                name: name.isEmpty ? (entity.name ?? "Anonymous") : name
-                            )
+                        entity.name = name.isEmpty ? "Anonymous" : name
+                        do{
+                            try modelContext.save()
+                        }catch{
+                            print("Error saving: \(error.localizedDescription)")
+                        }
                         withAnimation {
                             editMode.toggle()
                         }
@@ -60,7 +64,7 @@ struct RankScoreView: View {
                     Text("\(score)")
                         .frame(maxWidth: .infinity)
                     
-                    Text(entity.name?.uppercased() ?? "")
+                    Text(entity.name.uppercased())
                         .frame(maxWidth: .infinity)
                 }
                 .font(.headline)

@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct HighScoreView: View {
-    @EnvironmentObject private var highScoreVM: HighScoreViewModel
+//    @EnvironmentObject private var highScoreVM: HighScoreViewModel
+    @Query(sort:\HighScoreEntity.score, order: .reverse) private var highScores: [HighScoreEntity] = []
+    @Environment(\.modelContext) var modelContext
     
     var body: some View {
         ZStack{
@@ -18,7 +21,7 @@ struct HighScoreView: View {
                 HighScoreTitleView()
                 
                 List{
-                    ForEach(Array(highScoreVM.highScores.enumerated()),id: \.offset) {
+                    ForEach(Array(highScores.enumerated()),id: \.offset) {
                         index, entity in
                         
                         RankScoreView(
@@ -27,7 +30,7 @@ struct HighScoreView: View {
                             entity: entity
                         )
                     }
-                    .onDelete(perform: highScoreVM.deleteHighScore(indexSet:))
+                    .onDelete(perform: deleteHighScore(indexSet:))
                     .listRowBackground(Color.black)
                 }
                 .listStyle(.plain)
@@ -39,10 +42,20 @@ struct HighScoreView: View {
             }
         }
     }
+    
+    func deleteHighScore(indexSet: IndexSet) {
+        guard let index = indexSet.first else{ return }
+        let entity = highScores[index]
+        modelContext.delete(entity)
+        
+//        for index in indexSet {
+//            modelContext.delete(highScores[index])
+//        }
+    }
 }
 
 
 #Preview {
     HighScoreView()
-        .environmentObject(HighScoreViewModel())
+        .modelContainer(for: HighScoreEntity.self)
 }
